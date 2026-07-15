@@ -102,3 +102,33 @@ print("\nReturning Book")
 library.return_book(1, 101)
 
 library.show_books()
+
+
+comment(output)
+
+Book added successfully.
+Book added successfully.
+Book added successfully.
+Patron registered successfully.
+Patron registered successfully.
+
+Library Books
+101 - Python Basics - John - Available
+102 - Data Structures - David - Available
+103 - Machine Learning - Andrew - Available
+
+Borrowing Book
+Rahul borrowed Python Basics
+
+Library Books
+101 - Python Basics - John - Borrowed
+102 - Data Structures - David - Available
+103 - Machine Learning - Andrew - Available
+
+Returning Book
+Rahul returned Python Basics
+
+Library Books
+101 - Python Basics - John - Available
+102 - Data Structures - David - Available
+103 - Machine Learning - Andrew - Available
