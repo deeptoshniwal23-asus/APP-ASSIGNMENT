@@ -65,8 +65,6 @@ processor.process_payment(amount)
 
 
 
-"""
-
 Enter Amount: ₹500
 
 Choose Payment Method
@@ -76,4 +74,3 @@ Choose Payment Method
 Enter Choice: 3
 ₹500.0 paid using UPI.
 
-"""
