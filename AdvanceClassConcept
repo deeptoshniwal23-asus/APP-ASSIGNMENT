@@ -1,0 +1,69 @@
+# Advanced Class Concepts in Python
+
+# Parent Class
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.__salary = salary      # Encapsulation
+
+    def get_salary(self):
+        return self.__salary
+
+    def display(self):
+        print("Employee Name :", self.name)
+        print("Salary        :", self.__salary)
+
+
+# Child Class
+class Manager(Employee):
+    def __init__(self, name, salary, department):
+        super().__init__(name, salary)
+        self.department = department
+
+    # Method Overriding
+    def display(self):
+        super().display()
+        print("Department    :", self.department)
+
+
+# Another Child Class
+class Developer(Employee):
+    def __init__(self, name, salary, language):
+        super().__init__(name, salary)
+        self.language = language
+
+    # Method Overriding
+    def display(self):
+        super().display()
+        print("Programming Language :", self.language)
+
+
+# -------- Main Program --------
+
+print("====== Manager Details ======")
+m1 = Manager("Amit", 75000, "Human Resources")
+m1.display()
+
+print("\n====== Developer Details ======")
+d1 = Developer("Sneha", 65000, "Python")
+d1.display()
+
+print("\nManager Salary :", m1.get_salary())
+
+
+
+"""
+
+====== Manager Details ======
+Employee Name : Amit
+Salary        : 75000
+Department    : Human Resources
+
+====== Developer Details ======
+Employee Name : Sneha
+Salary        : 65000
+Programming Language : Python
+
+Manager Salary : 75000
+
+"""
