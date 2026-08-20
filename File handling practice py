@@ -42,9 +42,7 @@ if not found:
     print("Student not found!")
 
 
-
 """
-
 
 Enter student name: Deep Toshniwal
 Enter roll number: 16
@@ -64,6 +62,5 @@ Roll No: 16
 Name: Deep Toshniwal
 Course: Btech CSE
 Marks: 90
-
 
 """
