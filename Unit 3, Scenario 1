@@ -1,0 +1,57 @@
+import csv
+import argparse
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("--file")
+
+args = parser.parse_args()
+
+students = []
+
+with open(args.file, "r", newline="", encoding="utf-8") as file:
+    reader = csv.DictReader(file)
+
+    for row in reader:
+        students.append(row)
+
+print("Student Records:")
+
+for student in students:
+    print(student)
+
+roll = input("\nEnter Roll Number to search: ")
+
+found = False
+
+for student in students:
+    if student["Roll Number"] == roll:
+        print("\nStudent Found:")
+        print("Name:", student["Name"])
+        print("Roll Number:", student["Roll Number"])
+        print("Course:", student["Course"])
+        found = True
+        break
+
+if found == False:
+    print("Student not found.")
+
+
+
+
+"""
+
+Student Records:
+{'Name': 'Deep', 'Roll Number': '16', 'Course': 'CSE'}
+{'Name': 'Rahul', 'Roll Number': '17', 'Course': 'CSE'}
+{'Name': 'Aarav', 'Roll Number': '18', 'Course': 'CSE'}
+
+Enter Roll Number to search: 17
+
+Student Found:
+Name: Rahul
+Roll Number: 17
+Course: CSE
+
+
+"""
