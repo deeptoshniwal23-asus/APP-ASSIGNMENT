@@ -1,0 +1,75 @@
+import csv
+import re
+
+input_file = "movies.csv"
+
+movies = []
+
+with open(input_file, "r", newline="", encoding="utf-8") as file:
+    reader = csv.DictReader(file)
+
+    for row in reader:
+        movies.append(row)
+
+print("Movie Records:")
+
+for movie in movies:
+    print(movie)
+
+movie_id = input("\nEnter Movie ID to search: ")
+
+found = False
+
+for movie in movies:
+    if movie["Movie ID"] == movie_id:
+        print("\nMovie Found:")
+        print("Movie ID:", movie["Movie ID"])
+        print("Title:", movie["Title"])
+        print("Year:", movie["Year"])
+        found = True
+        break
+
+if found == False:
+    print("Movie not found.")
+
+title = input("\nEnter movie title to search: ")
+
+pattern = re.compile(title, re.IGNORECASE)
+
+print("\nMovies matching the title:")
+
+found = False
+
+for movie in movies:
+    if pattern.search(movie["Title"]):
+        print(movie)
+        found = True
+
+if found == False:
+    print("No movie found with this title.")
+
+
+
+
+"""
+
+Movie Records:
+{'Movie ID': '101', 'Title': 'Inception', 'Year': '2010'}
+{'Movie ID': '102', 'Title': 'Interstellar', 'Year': '2014'}
+{'Movie ID': '103', 'Title': 'Avengers Endgame', 'Year': '2019'}
+{'Movie ID': '104', 'Title': 'The Dark Knight', 'Year': '2008'}
+
+Enter Movie ID to search: 102
+
+Movie Found:
+Movie ID: 102
+Title: Interstellar
+Year: 2014
+
+Enter movie title to search: Avengers Endgame 
+
+Movies matching the title:
+{'Movie ID': '103', 'Title': 'Avengers Endgame', 'Year': '2019'}
+
+
+"""
